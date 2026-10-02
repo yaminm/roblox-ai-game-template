@@ -10,6 +10,27 @@ direction or milestone is unsettled, use `$roblox-ai-game-plan` first. A user as
 to implement an existing GAME.md milestone already supplies product authorization;
 do not repeat brainstorming or request the same approval again.
 
+## Compatibility precedence and approved artifact
+
+For an existing game, the precedence is:
+
+`AGENTS.md / GAME.md / repository docs / .harness metadata > installed skill assumptions`.
+
+Repository instructions, product intent, tool pins, and recorded provenance govern
+work. Never automatically upgrade a game's harness, change its origin metadata, or
+rewrite it to match the installed skill version. Harness upgrades are separate,
+explicit assignments; this skill works with older generated games.
+
+An existing repository's GAME.md is the canonical product contract. For a new game,
+require the exact Approved GAME.md file/path or complete approved content. A fresh
+conversation without that artifact must request it rather than reconstructing product
+intent from vague memory or prior-chat assumptions.
+
+In the same conversation, approval plus a request to proceed hands off directly from
+`$roblox-ai-game-plan`: carry its approved artifact exactly and honor prior decisions
+and authorization. Ask only about missing execution details, never re-brainstorm an
+approved direction. Approval alone does not imply an implementation request.
+
 ## Establish the baseline
 
 In an existing repository, read `AGENTS.md`, `GAME.md`, and their relevant linked
@@ -28,7 +49,9 @@ identity or expose credentials.
 
 Use the user-selected reviewed release tag; `v1.0.0` is the proven baseline. Verify
 the published tag and commit rather than silently choosing a newer release or moving
-template/main. Follow the selected release's `docs/NEW_GAME.md` and `init-game --help`.
+template/main. For explicitly requested harness dogfooding, an exact PR candidate
+commit may be used as a preview; record that commit/version and never describe it
+as a published release. Follow its `docs/NEW_GAME.md` and `init-game --help`.
 Example (replace the game directory, name, and intended GitHub account):
 
 ```sh
@@ -42,7 +65,11 @@ git switch -c main
 ```
 
 Keep full shared history and the `template` remote. Run initialization on the clean
-clone before transferring the approved GAME.md. Inspect naming, marker removal, and
+clone before transferring the Approved GAME.md byte for byte. Verify its SHA-256
+before and after transfer; never amend product content during handoff. Repository
+GAME.md becomes the sole canonical contract, superseding the external planning
+artifact; move that file when appropriate and keep evidence copies non-authoritative.
+Inspect naming, marker removal, and
 `.harness/game.json`: `originHarnessVersion` must match the release and `templateCommit`
 its exact commit. Preserve recorded provenance. Review the initialization diff, record
 the approved contract, and verify/commit initialization before starting the task branch.

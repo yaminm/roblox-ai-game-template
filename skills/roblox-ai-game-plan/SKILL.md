@@ -67,21 +67,31 @@ Use the repository's `GAME.md` structure when it exists. Include:
 Keep engineering acceptance separate from fun hypotheses: Studio MCP can prove
 behavior, while player observation is needed to assess clarity and desire to replay.
 
-In an existing repository, read its agent contract before editing and record the
-approved plan in `GAME.md`. For a new game without a repository, provide the complete
-approved `GAME.md` content; creation transfers it after `init-game`, which requires
-a clean template clone. Never make repository creation depend on an old transcript.
+## One approved GAME.md and direct handoff
 
-Planning completes with an approved contract and a handoff identifying the game or
-repository, milestone, and confirmed delivery preferences. For a new game:
+Maintain exactly one canonical Approved GAME.md. In an existing game, repository
+`GAME.md` is authoritative; read its agent contract and preserve existing work before
+editing. For a new game, write one `GAME.md` planning artifact outside the future
+template clone (for example, `.game-plans/<slug>/GAME.md` in the games' parent folder).
+If writing an artifact is unavailable, provide its complete Markdown content.
 
-```text
-Use $roblox-ai-game-create to create the game from a reviewed template release
-and implement milestone 1 using the approved GAME.md below.
-```
+Present that exact artifact/content for approval. Approval applies to its specific
+revision; record the path and SHA-256 when a file exists. A direction choice alone
+does not approve product decisions added afterward. Label unapproved work as a draft.
 
-For an existing game, use: "Use $roblox-ai-game-create to implement milestone N
-from GAME.md in this repository."
+When the user approves and asks to proceed in this conversation, load and immediately
+continue with `$roblox-ai-game-create`, carrying the exact Approved GAME.md and known
+delivery preferences. Do not ask them to repeat the plan, invoke the creator manually,
+or reopen approved choices. Approval without a request to proceed ends at planning.
+
+Creator initializes a clean clone first, transfers the approved bytes into repository
+`GAME.md`, verifies fidelity, and makes that file the sole canonical contract. Retire
+the external planning artifact's canonical role; retained evidence is non-authoritative.
+
+For a fresh conversation without an existing game repository, the handoff must include
+the explicit approved artifact path or full content and its approval status. Never
+reconstruct it from vague memory, a summary, or assumed access to an earlier chat.
+For an existing repository, continue from its GAME.md rather than an external copy.
 
 If approval is pending, report a draft rather than an approved plan. Planning alone
 does not authorize repository creation, gameplay changes, or publication. After each

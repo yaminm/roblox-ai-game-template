@@ -8,6 +8,11 @@ CLI authentication. For a real game, choose a published, reviewed harness releas
 tag (for example `v1.0.0`). Clone with full history and create a game branch from
 that tag so future harness upgrades share ancestry:
 
+Published v1.0.0 remains available. The v1.1.0 candidate adds optional planning/create
+skills; use its release tag only after review, merge, and publication. Before creating
+a game with those skills, approve one canonical GAME.md artifact. Creation transfers
+it exactly after initialization; the generated repository contract then governs work.
+
 ```sh
 git clone --branch v1.0.0 git@github.com:yaminm/roblox-ai-game-template.git my-new-game
 cd my-new-game
@@ -22,8 +27,8 @@ gh repo create yaminm/my-new-game --private --source=. --remote=origin --push
 ```
 
 Cloning a tag starts in detached HEAD; `git switch -c main` creates the game's
-branch at that exact release commit. Choose an existing published tag; `v1.0.0`
-is the release convention and is not created until the release is approved.
+branch at that exact release commit. Choose an existing published tag; never assume
+a candidate version such as `v1.1.0` has already been published.
 `init-game` records the exact checked-out template commit, not a moving branch
 name, in `.harness/game.json` alongside the originating harness version.
 

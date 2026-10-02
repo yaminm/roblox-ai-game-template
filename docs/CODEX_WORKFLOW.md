@@ -10,6 +10,12 @@ overwrite existing skill directories. An approved GAME.md milestone needs no new
 brainstorming. After each major iteration, summarize changes, results, and remaining
 work in the conversation; keep durable product intent in GAME.md.
 
+Planning approval identifies one canonical GAME.md. Approval plus a request to proceed
+continues directly to creation with the exact artifact. In a new conversation without
+a repository, supply its approved path/content; existing repository GAME.md and agent
+instructions take precedence over installed skill defaults. Installing v1.1.0 skills
+does not automatically upgrade a v1.0.0 game.
+
 ## Human-driven mode
 
 The user writes a milestone in GAME.md, opens `codex` in the repo, and requests
