@@ -13,8 +13,9 @@ Release/PR descriptions provide the changelog and migration notes.
 
 The v1.1.0 candidate adds the optional `skills/roblox-ai-game-plan/` and
 `skills/roblox-ai-game-create/` capabilities: conversational discovery, one approved
-GAME.md artifact, direct creation handoff, and explicit repository compatibility
-precedence. This compatible capability addition uses a minor version bump. It does
+GAME.md artifact, direct creation handoff, device/input contracts and representative
+runtime profiles, and explicit repository compatibility precedence. This compatible
+capability addition uses a minor version bump. It does
 not change tool pins or gameplay. Keep v1.0.0 immutable; v1.1.0 is tagged only after
 review and merge. Installing new skills alone never upgrades an existing game or
 changes its HARNESS_VERSION/provenance.

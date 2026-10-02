@@ -25,6 +25,26 @@ repeatable actions and choices, progression, social play, persistence, and
 monetization boundaries. Ask only what would change the recommendation or V1.
 Mark suggested defaults as assumptions rather than confirmed requirements.
 
+## Choose device and input strategy
+
+Derive devices from the audience and concept rather than enforcing mobile-first.
+For children/general Roblox audiences without a stated platform preference, recommend
+phones/tablets as the primary UX constraint with full desktop keyboard/mouse support.
+Suggest simple touch-compatible actions, readable small-screen UI, and no reliance on
+precise mouse aiming or many keyboard buttons. Keep this an assumption until confirmed.
+
+Honor explicit desktop, console, or precision-heavy concepts and explain their reach
+and control tradeoffs. Ask device questions only when they change the recommendation
+or milestone; carry existing answers forward.
+
+Evaluate precision aiming, hover-only actions, many hotkeys, tiny UI/dense HUDs, text
+entry, simultaneous controls, and conflicts with Roblox touch movement/jump controls.
+Surface constraints that affect feasibility, then record confirmed primary/secondary
+devices and input, orientation/unsupported cases, and milestone-specific device
+acceptance in the canonical Approved GAME.md. A normal mobile-first V1 can require one
+representative phone-sized Studio simulation and desktop sanity rather than every
+resolution/device. Separate actual touch interaction from visual layout evidence.
+
 ## Suggest and challenge concepts
 
 For an open premise, offer two or three distinct concepts. For a specific idea,
@@ -57,7 +77,8 @@ Leave future features outside the milestone and label remaining open decisions.
 
 Use the repository's `GAME.md` structure when it exists. Include:
 
-- vision, audience/device assumptions, and first-minute experience;
+- vision, audience, and first-minute experience;
+- confirmed target devices/input, interaction constraints, and required device acceptance;
 - core loop, rules, V1 scope, and explicit non-goals;
 - trusted server state, client responsibilities, and visible feedback/UI;
 - multiplayer, persistence, and monetization requirements, including deliberate omissions;

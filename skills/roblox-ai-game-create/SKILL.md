@@ -106,6 +106,24 @@ Gameplay, UI, physics, replication, hierarchy, remotes, characters, and other en
 behavior require actual Studio acceptance. For docs-only changes, record why runtime
 testing is unnecessary. CI validates the repository; Studio validates runtime behavior.
 
+Read GAME.md's target devices, input model, and milestone device acceptance before
+choosing the smallest representative runtime matrix. Runtime validation has three
+layers: generic smoke + milestone behavior + required device/input profiles.
+
+For a mobile-first game with desktop support and gameplay/UI changes, normally test
+desktop plus one representative phone-sized Studio device simulation. Exercise the
+core touch-compatible interaction, inspect readable HUD/text and reachable actions,
+and check clipping/overlap with Roblox touch movement/jump controls. Record profile,
+viewport/orientation, input actually used, and observations. Desktop sanity remains
+required. Honor an explicit desktop-only V1; do not force mobile/console or every
+orientation/resolution. For changes unrelated to UI/input/device behavior, repeat only
+the profiles needed by GAME.md and the changed behavior.
+
+A phone-sized visual check does not prove touch input. If Studio/MCP cannot automate
+the required touch path, perform the strongest available device simulation and report
+visual/pointer results separately from pending touch/manual-device acceptance. Never
+falsify input-type evidence or label an unavailable touch check as passed.
+
 Use the official Studio MCP server and the repository's `docs/MCP_SETUP.md` and
 `docs/TESTING.md`. Build/open or sync the current source revision. Enumerate Studio
 instances, explicitly select the intended file/ID, and inspect its mode and DataModel.

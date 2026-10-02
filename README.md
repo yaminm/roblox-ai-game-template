@@ -3,8 +3,9 @@
 A small Git + Rojo + Rokit harness for Roblox games, with Codex as a development
 agent. No runtime packages or gameplay framework are included.
 
-Harness v1.1.0 adds optional planning and creation skills with an exact approved
-GAME.md handoff. It is a review candidate; no v1.1.0 release tag exists yet.
+Harness v1.1.0 adds optional device-aware planning and creation skills with an exact
+approved GAME.md handoff and contract-driven runtime profiles. It is a review candidate;
+no v1.1.0 release tag exists yet.
 Published v1.0.0 remains unchanged and is still available for released-game creation.
 
 [Create a game](docs/NEW_GAME.md) → edit [GAME.md](GAME.md) → open `codex` →

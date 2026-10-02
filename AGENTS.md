@@ -18,7 +18,8 @@ Before completion:
    source ownership, and accidental changes.
 3. For gameplay, UI, physics, replication, hierarchy, remotes, character, or
    other runtime changes, perform the actual Studio MCP playtest in
-   [TESTING.md](docs/TESTING.md). A build is not runtime evidence. If Studio is
+   [TESTING.md](docs/TESTING.md), including GAME.md's required device/input profiles.
+   A build is not runtime evidence. If Studio is
    unavailable, report runtime validation pending and do not claim completion.
 4. Follow [CODEX_WORKFLOW.md](docs/CODEX_WORKFLOW.md): commit coherent verified
    work on the intended task branch, push, create/update its PR, and inspect CI.

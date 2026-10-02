@@ -30,10 +30,13 @@ that milestone. AGENTS.md supplies implementation/verification requirements.
 Use the intended task branch; if starting on `main`, create `codex/<task>` before
 editing. Preserve unrelated local work and inspect any existing task PR first.
 
-Implement → canonical gate → required Studio smoke/game acceptance → diff and
+Implement → canonical gate → required Studio smoke/game/device acceptance → diff and
 self-review → coherent commit → push → create/update one task PR → inspect CI →
 human review/merge. This project expects a PR for a completed normal task unless
 the user requests local-only work. Never merge by default.
+
+Derive required device/input profiles from GAME.md using TESTING.md. Record actual
+input evidence separately from visual layout checks and pending tooling limitations.
 
 Self-review the entire task diff against acceptance criteria, authority/input
 validation, module boundaries, tests, ownership, whitespace, and accidental
