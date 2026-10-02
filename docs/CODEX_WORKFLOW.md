@@ -1,5 +1,15 @@
 # Task branches, review, and delivery
 
+For a new game without a product contract, use the optional
+[planning skill](../skills/roblox-ai-game-plan/SKILL.md), then the
+[creation skill](../skills/roblox-ai-game-create/SKILL.md). Installation and the
+starting workspace are described in the [README](../README.md#optional-codex-skills).
+The Git-tracked skill files are authoritative; installed copies are local tools.
+Review changes before updating installed copies; the skill installer refuses to
+overwrite existing skill directories. An approved GAME.md milestone needs no new
+brainstorming. After each major iteration, summarize changes, results, and remaining
+work in the conversation; keep durable product intent in GAME.md.
+
 ## Human-driven mode
 
 The user writes a milestone in GAME.md, opens `codex` in the repo, and requests

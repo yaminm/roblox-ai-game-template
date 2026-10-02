@@ -1,0 +1,4 @@
+interface:
+  display_name: "Roblox AI Game Planning"
+  short_description: "Brainstorm a Roblox game before implementation"
+  default_prompt: "Use $roblox-ai-game-plan to brainstorm a Roblox game with me and agree on a small GAME.md milestone before implementation."

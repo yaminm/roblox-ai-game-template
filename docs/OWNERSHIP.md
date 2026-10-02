@@ -10,7 +10,7 @@ representation and document its owner. Remove temporary probes before stopping.
 
 | Ownership | Files |
 | --- | --- |
-| Harness | `.github/workflows/`, `rokit.toml`, `.luaurc`, `selene.toml`, `stylua.toml`, `.editorconfig`, `HARNESS_VERSION`, `scripts/`, `tests/harness/`, `tooling/`, `AGENTS.md`, `CLAUDE.md`, generic setup/testing/security/workflow/upgrade docs |
+| Harness | `.github/workflows/`, `rokit.toml`, `.luaurc`, `selene.toml`, `stylua.toml`, `.editorconfig`, `HARNESS_VERSION`, `scripts/`, `skills/`, `tests/harness/`, `tooling/`, `AGENTS.md`, `CLAUDE.md`, generic setup/testing/security/workflow/upgrade docs |
 | Game | `GAME.md`, `src/`, `tests/unit/`, game ADRs, `docs/ARCHITECTURE.md`, game evidence and assets |
 | Shared | `default.project.json` (harness mounts plus game name/world), `.gitignore`, `README.md` (game onboarding), `.harness/game.json` (initialization provenance) |
 
