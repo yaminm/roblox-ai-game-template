@@ -1,0 +1,23 @@
+{
+  "name": "RobloxAIGameTemplate",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": { "Shared": { "$path": "src/shared" } },
+    "ServerScriptService": { "Server": { "$path": "src/server" } },
+    "StarterPlayer": { "StarterPlayerScripts": { "Client": { "$path": "src/client" } } },
+    "Workspace": {
+      "Baseplate": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Size": [128, 1, 128],
+          "Position": [0, -0.5, 0]
+        }
+      },
+      "Spawn": {
+        "$className": "SpawnLocation",
+        "$properties": { "Anchored": true, "Position": [0, 0.5, 0], "Size": [6, 1, 6], "Neutral": true }
+      }
+    }
+  }
+}

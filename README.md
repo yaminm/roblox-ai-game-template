@@ -1,53 +1,27 @@
-# RobloxAIGameTemplate
+# Roblox AI Game Template v1
 
-AI-first Roblox development baseline: Git + Rojo + pinned Rokit tools + Roblox Studio MCP.
+A small Git + Rojo + Rokit harness for Roblox games, with Codex as a development
+agent. No runtime packages or gameplay framework are included.
 
-## One-time workstation setup
-
-1. Install Roblox Studio, Git, and **Rokit**.
-2. From this repository, run `rokit install`.
-3. Run `lune run scripts/bootstrap.luau`.
-4. Open Roblox Studio and enable **Studio as MCP server** under Assistant -> `...` -> Manage MCP Servers.
-5. Quick-connect your coding harness (Codex CLI / Claude Code / Cursor when available).
-
-## Daily loop
-
-Terminal A:
+[Create a game](docs/NEW_GAME.md) → edit [GAME.md](GAME.md) → open `codex` →
+ask “Implement milestone 1 from GAME.md.” [AGENTS.md](AGENTS.md) supplies the
+repository contract; [CODEX_WORKFLOW.md](docs/CODEX_WORKFLOW.md) explains the loop.
 
 ```sh
-rojo serve
+./scripts/bootstrap.sh
+./scripts/verify.sh
+rojo serve default.project.json
 ```
 
-Open `build/game.rbxlx` (or a project place), then connect the Rojo Studio plugin. Let the agent edit
-filesystem-owned code, use MCP for runtime inspection/playtesting, and keep Studio-only changes within
-the ownership policy.
+Open `build/game.rbxlx` in Studio, or connect the Rojo plugin to the local server.
+[Set up official Studio MCP](docs/MCP_SETUP.md) for runtime validation.
+CI runs the same repository gate; Studio runs the actual engine playtest.
 
-Before committing:
+Requires Git, Python 3, Bash, and Rokit 1.2.0. macOS and Ubuntu are the supported
+shell environments; Studio runtime validation requires macOS or Windows.
+Windows users can run shell verification in WSL and Studio on Windows (Rojo
+network bridging must be configured separately).
 
-```sh
-lune run scripts/verify.luau
-```
-
-Runtime/gameplay/UI changes must additionally be playtested through Studio MCP.
-
-## Important docs
-
-- `AGENTS.md` - agent contract and guardrails
-- `GAME.md` - product/game contract
-- `docs/OWNERSHIP.md` - filesystem vs Studio ownership
-- `docs/TESTING.md` - verification gates
-- `docs/SECURITY.md` - server-authority baseline
-- `docs/MCP_SETUP.md` - MCP setup
-
-## MCP smoke test
-
-Once Rojo and MCP are connected, ask your agent:
-
-> Inspect the current Roblox Studio DataModel through MCP. Confirm `ReplicatedStorage.Shared`,
-> `ServerScriptService.Server`, and `StarterPlayerScripts.Client` exist. Start a playtest, verify the
-> server and client harness-ready messages appear without new errors, then stop the playtest. Do not
-> edit any filesystem-owned Script source through MCP.
-
-The repository intentionally has **zero third-party runtime dependencies** at baseline. Add packages
-only when a real game need justifies them; then add the corresponding Rojo package mounts, run `wally install`,
-and commit `wally.lock`.
+The harness version is in [HARNESS_VERSION](HARNESS_VERSION).
+[Upgrade intentionally through Git](docs/HARNESS_UPGRADES.md), retaining the
+`template` remote and shared history.
