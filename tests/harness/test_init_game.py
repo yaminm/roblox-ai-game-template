@@ -48,10 +48,11 @@ class InitGameTests(unittest.TestCase):
     def test_initializes_without_rewriting_history_or_remote(self):
         head = self.git("rev-parse", "HEAD")
         remote = self.git("remote", "get-url", "template")
-        result = self.run_init("--name", 'Moon "Workshop" 🚀')
+        result = self.run_init("--name", 'Moon "Workshop" 🚀', "--github-user", "yaminm")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(self.git("rev-parse", "HEAD"), head)
         self.assertEqual(self.git("remote", "get-url", "template"), remote)
+        self.assertEqual(self.git("config", "--local", "harness.githubUser"), "yaminm")
         self.assertEqual(json.loads((self.root / "default.project.json").read_text())["name"],
                          'Moon "Workshop" 🚀')
         origin = json.loads((self.root / ".harness/game.json").read_text())

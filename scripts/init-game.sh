@@ -3,11 +3,12 @@ set -euo pipefail
 
 if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
   cat <<'HELP'
-Usage: ./scripts/init-game.sh --name "My New Game"
+Usage: ./scripts/init-game.sh --name "My New Game" [--github-user LOGIN]
 
 Initialize game-owned files in a clean, uninitialized template clone.
 Requires Git, Python 3, and a remote named template. Preserves history/remotes.
 Refuses dirty work or reruns. Does not install tools, create a remote, or publish.
+Select the intended GitHub account with --github-user on multi-account machines.
 Next: ./scripts/bootstrap.sh && ./scripts/verify.sh, then review and commit.
 HELP
   exit 0
@@ -29,8 +30,11 @@ import sys
 
 parser = argparse.ArgumentParser(description="Initialize a clean template clone")
 parser.add_argument("--name", required=True)
+parser.add_argument("--github-user", help="Explicit GitHub CLI account used by bootstrap")
 arguments = parser.parse_args()
 name = arguments.name
+if arguments.github_user and not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9-]{0,38}", arguments.github_user):
+    sys.exit("Invalid GitHub login; pass an account name, never a credential.")
 if not name.strip() or name != name.strip() or len(name) > 80 or any(ord(c) < 32 for c in name):
     sys.exit("Game name must be 1-80 characters, without control characters or surrounding spaces.")
 
@@ -101,6 +105,8 @@ for path, content in updates.items():
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(content)
 marker.unlink()
+if arguments.github_user:
+    git("config", "--local", "harness.githubUser", arguments.github_user)
 print(f"Initialized {name}; Git history and template remote preserved.")
 print("Review GAME.md, then run ./scripts/bootstrap.sh and ./scripts/verify.sh.")
 print("Review the diff and commit initialization before creating/pushing your game repository.")

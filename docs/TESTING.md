@@ -25,7 +25,8 @@ with `gh auth login --hostname github.com` and rerun bootstrap. CI supplies its
 read-only token via GitHub CLI to the same bootstrap.
 
 The gate checks staged/unstaged whitespace, committed whitespace, formatting,
-linting, Rojo sourcemap, Roblox-aware luau-lsp analysis of `src` and `tests`, initialization safety tests with Python, every
+linting, Rojo sourcemap, Roblox-aware luau-lsp analysis of `src` and `tests`,
+initialization safety tests with Python, every
 `tests/unit/**/*.spec.luau` file with Lune, and builds `build/game.rbxlx`.
 Lune executes unit tests only. Add engine-independent assertions alongside
 behavior changes; use Studio for engine-dependent behavior. At least one unit
