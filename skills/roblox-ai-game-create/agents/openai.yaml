@@ -1,0 +1,4 @@
+interface:
+  display_name: "Roblox AI Game Create"
+  short_description: "Create and validate Roblox games from the reusable AI template"
+  default_prompt: "Use $roblox-ai-game-create to create my approved Roblox game or implement a GAME.md milestone, verify it, and deliver it through the repository workflow."

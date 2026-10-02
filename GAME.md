@@ -8,6 +8,19 @@ Describe the game in one sentence.
 ## Player fantasy
 What should the player feel or become?
 
+## Target devices and input
+Primary devices:
+Secondary devices:
+Primary input:
+Secondary input:
+
+Interaction constraints: touch precision, simultaneous actions, small-screen UI,
+orientation where relevant, and intentionally unsupported devices/input.
+
+Device acceptance requirements: name the device classes, representative profiles,
+and actual input paths that must be runtime-tested for the current milestone.
+Support only the devices the product deliberately targets.
+
 ## Core gameplay loop
 Describe the repeatable player actions and reward.
 

@@ -38,7 +38,11 @@ empty tree. An explicit missing base fails. CI fetches full history and provides
 the PR base SHA (its checkout is the test merge) or pre-push SHA on `main`.
 The workflow invokes bootstrap and the same gate, with no Studio tests.
 
-## Template smoke test + game acceptance
+## Generic smoke + milestone acceptance + required device profiles
+
+Read GAME.md's target devices/input and the current milestone's device acceptance.
+Use the smallest representative matrix that covers that contract and changed behavior.
+CI validates repository correctness; it does not prove runtime or device behavior.
 
 After [MCP setup](MCP_SETUP.md), load the current Rojo build or sync. Use
 `list_roblox_studios`, explicitly select the intended file/instance ID, and check
@@ -64,8 +68,27 @@ modules; read state or evaluate repository-owned pure probe code instead of
 changing capabilities. Record actions, expected/observed results, source revision,
 and limits in the task PR; retain screenshots when they substantiate visual work.
 
-Read `get_console_output` and server/client LogService histories for new errors
-and warnings. Stop play and confirm Studio returns to Edit. Both the generic
-smoke and game-specific acceptance must pass for runtime changes. Build-only
-success cannot establish runtime correctness. If Studio tools are unavailable,
-report the exact pending scenarios; keep runtime-dependent work incomplete.
+### Device/input acceptance
+
+For normal mobile-first gameplay/UI milestones with desktop support, test one
+representative phone profile in Studio's device emulator plus desktop sanity.
+Record device/profile, viewport, orientation, and actual input used. Exercise the
+core action, then inspect HUD/text fit, readable feedback, reachable controls, clipping,
+and overlap with Roblox touch movement/jump controls. A desktop-only V1 needs no mobile
+run; console, both orientations, every phone resolution, physical devices, and a
+multiplayer-by-device matrix are required only when GAME.md deliberately asks for them.
+For unrelated changes, repeat profiles justified by the changed behavior or contract.
+
+A desktop playtest alone does not satisfy a mobile requirement. A phone-sized visual
+check alone does not prove its required touch interaction. Where official Studio/MCP
+exposes device/input simulation, exercise that path and observe the actual input type.
+If touch automation is unavailable, report the strongest observed phone-layout/pointer
+evidence and the pending touch/manual test separately; the missing capability is a
+tooling limitation, not a mobile gameplay pass. Never fabricate trusted state or input evidence.
+
+After the required profiles, read `get_console_output` and server/client LogService
+histories for new errors/warnings. Remove probes, stop play, confirm Edit mode, and
+confirm source still matches disk. Generic smoke, milestone acceptance, and GAME.md's
+required device/input checks must pass before claiming full runtime acceptance.
+A build alone never establishes runtime correctness. Report exact pending scenarios
+when Studio or a required input capability is unavailable.

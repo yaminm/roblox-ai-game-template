@@ -11,12 +11,21 @@ unmerged proposal as a release. Patch versions fix compatible defects; minor
 versions add compatible harness capabilities; major versions change contracts.
 Release/PR descriptions provide the changelog and migration notes.
 
+The v1.1.0 candidate adds the optional `skills/roblox-ai-game-plan/` and
+`skills/roblox-ai-game-create/` capabilities: conversational discovery, one approved
+GAME.md artifact, direct creation handoff, device/input contracts and representative
+runtime profiles, and explicit repository compatibility precedence. This compatible
+capability addition uses a minor version bump. It does
+not change tool pins or gameplay. Keep v1.0.0 immutable; v1.1.0 is tagged only after
+review and merge. Installing new skills alone never upgrades an existing game or
+changes its HARNESS_VERSION/provenance.
+
 In a game repository:
 
 ```sh
 git fetch template --tags
 git log --oneline HEAD..template/main
-git diff v1.0.0 v1.1.0 -- scripts/ tooling/ rokit.toml .github/ AGENTS.md docs/
+git diff v1.0.0 v1.1.0 -- scripts/ skills/ tooling/ rokit.toml .github/ AGENTS.md docs/
 git switch -c chore/harness-upgrade
 ```
 
