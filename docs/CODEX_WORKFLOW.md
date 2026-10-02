@@ -16,6 +16,13 @@ a repository, supply its approved path/content; existing repository GAME.md and 
 instructions take precedence over installed skill defaults. Installing v1.1.0 skills
 does not automatically upgrade a v1.0.0 game.
 
+Before the first session, select a model supported by the actual Codex account.
+An unsupported-model startup error occurs before skills can run; use the account's
+model picker or a per-session CLI model selection as described in the
+[official Codex configuration guide](https://learn.chatgpt.com/docs/config-file/config-basic).
+Keep personal model/authentication settings outside the repository; do not silently
+switch accounts or rewrite global configuration to repair a game task.
+
 ## Human-driven mode
 
 The user writes a milestone in GAME.md, opens `codex` in the repo, and requests
