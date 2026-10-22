@@ -47,15 +47,19 @@ identity or expose credentials.
 
 ## Create from a released harness
 
-Use the user-selected reviewed release tag; `v1.0.0` is the proven baseline. Verify
-the published tag and commit rather than silently choosing a newer release or moving
-template/main. For explicitly requested harness dogfooding, an exact PR candidate
-commit may be used as a preview; record that commit/version and never describe it
-as a published release. Follow its `docs/NEW_GAME.md` and `init-game --help`.
-Example (replace the game directory, name, and intended GitHub account):
+Use the user-selected compatible published, reviewed harness release. If none is
+selected, use the latest compatible published, reviewed release; after v1.1.0 is
+published, that is normally v1.1.0 until a later compatible release is reviewed.
+Verify the selected tag and commit. Never silently use `template/main` or treat
+the installed skill version as an upgrade instruction for an existing game. For
+explicitly requested pre-release dogfooding, use only the exact user-specified PR
+candidate commit as a preview; record its commit/version and label it unreleased.
+Follow that revision's `docs/NEW_GAME.md` and `init-game --help`.
+Example (replace the release tag, game directory, name, and intended GitHub account):
 
 ```sh
-git clone --branch v1.0.0 git@github.com:yaminm/roblox-ai-game-template.git my-new-game
+HARNESS_TAG='<published-reviewed-tag>'
+git clone --branch "$HARNESS_TAG" git@github.com:yaminm/roblox-ai-game-template.git my-new-game
 cd my-new-game
 git remote rename origin template
 git switch -c main

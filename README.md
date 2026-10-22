@@ -31,7 +31,9 @@ For later work, open the created game's repository and request its GAME.md miles
 Skills are optional; repository instructions and provenance take precedence over
 installed skill defaults. An approved GAME.md carries directly from planning to
 creation without restating decisions. The published `v1.0.0` release predates these
-skills; choose `v1.1.0` only after review, merge, and publication of that release tag.
+skills. Once `v1.1.0` is reviewed and published, use it as the normal starting
+release for games created with these skills unless another compatible release is
+explicitly selected; never silently start from `template/main`.
 
 ## Repository verification
 

@@ -75,7 +75,10 @@ already approved in the conversation. Before handoff, the agreed contract must
 identify the player, core loop, V1 boundaries, and measurable acceptance criteria.
 Leave future features outside the milestone and label remaining open decisions.
 
-Use the repository's `GAME.md` structure when it exists. Include:
+Use the starter `GAME.md` headings for a new game and the repository's `GAME.md`
+structure for an existing game. Keep `Target players / audience`,
+`First-minute experience`, and `Human fun hypothesis` as distinct, concise sections.
+Include:
 
 - vision, audience, and first-minute experience;
 - confirmed target devices/input, interaction constraints, and required device acceptance;
