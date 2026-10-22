@@ -4,12 +4,21 @@ Install workstation prerequisites from TESTING.md and authenticate GitHub CLI
 as the account that will own the game. Replace `yaminm` with your intended login
 in the commands below. Git-local account preferences do not carry through a clone;
 `--github-user` selects the bootstrap account explicitly without changing global
-CLI authentication. For a real game, choose a published, reviewed harness release
-tag (for example `v1.0.0`). Clone with full history and create a game branch from
-that tag so future harness upgrades share ancestry:
+CLI authentication. For a real game, select a compatible published, reviewed
+harness release. Unless the user selects another compatible release, use the latest
+reviewed release; after v1.1.0 is published, games using these skills should normally
+start there. Verify the tag and commit before cloning. Clone with full history and
+create a game branch from that tag so future harness upgrades share ancestry:
+
+Published v1.0.0 remains available. This v1.1.0 candidate is unreleased; use its
+release tag only after review, merge, and publication. A pre-release dogfood must
+pin the exact requested candidate commit and label it a preview. Before creating
+a game with the skills, approve one canonical GAME.md artifact. Creation transfers
+it exactly after initialization; the generated repository contract then governs work.
 
 ```sh
-git clone --branch v1.0.0 git@github.com:yaminm/roblox-ai-game-template.git my-new-game
+HARNESS_TAG='<published-reviewed-tag>'
+git clone --branch "$HARNESS_TAG" git@github.com:yaminm/roblox-ai-game-template.git my-new-game
 cd my-new-game
 git remote rename origin template
 git switch -c main
@@ -22,8 +31,8 @@ gh repo create yaminm/my-new-game --private --source=. --remote=origin --push
 ```
 
 Cloning a tag starts in detached HEAD; `git switch -c main` creates the game's
-branch at that exact release commit. Choose an existing published tag; `v1.0.0`
-is the release convention and is not created until the release is approved.
+branch at that exact release commit. Choose an existing published tag; never assume
+a candidate version has already been published and never silently use `template/main`.
 `init-game` records the exact checked-out template commit, not a moving branch
 name, in `.harness/game.json` alongside the originating harness version.
 
@@ -33,9 +42,14 @@ marker. It changes game name/config/product/README, records harness origin in
 It preserves history/remotes,
 creates no gameplay, makes no network calls, and refuses reruns or dirty work.
 It prints the next bootstrap/verification commands. Run `--help` for details.
+When a planning skill supplied an Approved GAME.md, copy its exact bytes into the
+initialized repository before bootstrap/verification and compare SHA-256 on both
+paths. Repository GAME.md then becomes authoritative; do not rewrite its product
+decisions during handoff.
 
-Edit GAME.md with a small measurable milestone, then open `codex` and ask
-“Implement milestone 1 from GAME.md.” Agent instructions are already in AGENTS.md.
+If you are not using the planning skill, edit GAME.md with a small measurable
+milestone, then open `codex` and ask “Implement milestone 1 from GAME.md.” Agent
+instructions are already in AGENTS.md.
 Keep the `template` remote when `origin` is added for your game.
 
 `template/main` is for harness development/testing and previewing unreleased
