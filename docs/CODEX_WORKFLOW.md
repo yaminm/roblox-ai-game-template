@@ -1,5 +1,28 @@
 # Task branches, review, and delivery
 
+For a new game without a product contract, use the optional
+[planning skill](../skills/roblox-ai-game-plan/SKILL.md), then the
+[creation skill](../skills/roblox-ai-game-create/SKILL.md). Installation and the
+starting workspace are described in the [README](../README.md#optional-codex-skills).
+The Git-tracked skill files are authoritative; installed copies are local tools.
+Review changes before updating installed copies; the skill installer refuses to
+overwrite existing skill directories. An approved GAME.md milestone needs no new
+brainstorming. After each major iteration, summarize changes, results, and remaining
+work in the conversation; keep durable product intent in GAME.md.
+
+Planning approval identifies one canonical GAME.md. Approval plus a request to proceed
+continues directly to creation with the exact artifact. In a new conversation without
+a repository, supply its approved path/content; existing repository GAME.md and agent
+instructions take precedence over installed skill defaults. Installing v1.1.0 skills
+does not automatically upgrade a v1.0.0 game.
+
+Before the first session, select a model supported by the actual Codex account.
+An unsupported-model startup error occurs before skills can run; use the account's
+model picker or a per-session CLI model selection as described in the
+[official Codex configuration guide](https://learn.chatgpt.com/docs/config-file/config-basic).
+Keep personal model/authentication settings outside the repository; do not silently
+switch accounts or rewrite global configuration to repair a game task.
+
 ## Human-driven mode
 
 The user writes a milestone in GAME.md, opens `codex` in the repo, and requests
@@ -7,10 +30,13 @@ that milestone. AGENTS.md supplies implementation/verification requirements.
 Use the intended task branch; if starting on `main`, create `codex/<task>` before
 editing. Preserve unrelated local work and inspect any existing task PR first.
 
-Implement → canonical gate → required Studio smoke/game acceptance → diff and
+Implement → canonical gate → required Studio smoke/game/device acceptance → diff and
 self-review → coherent commit → push → create/update one task PR → inspect CI →
 human review/merge. This project expects a PR for a completed normal task unless
 the user requests local-only work. Never merge by default.
+
+Derive required device/input profiles from GAME.md using TESTING.md. Record actual
+input evidence separately from visual layout checks and pending tooling limitations.
 
 Self-review the entire task diff against acceptance criteria, authority/input
 validation, module boundaries, tests, ownership, whitespace, and accidental

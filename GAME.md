@@ -5,8 +5,27 @@
 ## Vision
 Describe the game in one sentence.
 
+## Target players / audience
+Who is this for?
+
 ## Player fantasy
 What should the player feel or become?
+
+## First-minute experience
+What does the player see and do before the first successful action?
+
+## Target devices and input
+Primary devices:
+Secondary devices:
+Primary input:
+Secondary input:
+
+Interaction constraints: touch precision, simultaneous actions, small-screen UI,
+orientation where relevant, and intentionally unsupported devices/input.
+
+Device acceptance requirements: name the device classes, representative profiles,
+and actual input paths that must be runtime-tested for the current milestone.
+Support only the devices the product deliberately targets.
 
 ## Core gameplay loop
 Describe the repeatable player actions and reward.
@@ -37,6 +56,9 @@ State player count and interaction rules before implementing them.
 
 ## Runtime acceptance scenarios
 For each milestone: action, expected server/client state, visual result, errors.
+
+## Human fun hypothesis
+Name one player-observation question that Studio checks cannot answer.
 
 ## Current milestone
 Define milestone 1 before asking the agent to implement it.
