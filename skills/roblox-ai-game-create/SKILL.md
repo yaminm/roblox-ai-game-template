@@ -123,6 +123,10 @@ required. Honor an explicit desktop-only V1; do not force mobile/console or ever
 orientation/resolution. For changes unrelated to UI/input/device behavior, repeat only
 the profiles needed by GAME.md and the changed behavior.
 
+Discover the official MCP server's available device-simulator guidance before setting
+up a phone profile. Follow the repository's device procedure to fit the full viewport
+and observe the input type received by the game; tool names alone do not prove touch.
+
 A phone-sized visual check does not prove touch input. If Studio/MCP cannot automate
 the required touch path, perform the strongest available device simulation and report
 visual/pointer results separately from pending touch/manual-device acceptance. Never

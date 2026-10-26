@@ -86,6 +86,15 @@ If touch automation is unavailable, report the strongest observed phone-layout/p
 evidence and the pending touch/manual test separately; the missing capability is a
 tooling limitation, not a mobile gameplay pass. Never fabricate trusted state or input evidence.
 
+Discover the official MCP server's device-simulator guidance when available. Select
+the phone device before setting its orientation, and explicitly use a scaling mode
+that fits the whole viewport in the Studio window. Studio persists scaling settings;
+a cropped capture cannot establish layout fit. Record the active device, orientation,
+scaling mode, camera viewport, and capture coverage. Observe `UserInputService` events
+when testing touch: a pointer tool can deliver simulated Touch events under device
+emulation, while a phone profile alone proves neither movement nor prompt activation.
+Use temporary input observers only as evidence and remove them after the playtest.
+
 After the required profiles, read `get_console_output` and server/client LogService
 histories for new errors/warnings. Remove probes, stop play, confirm Edit mode, and
 confirm source still matches disk. Generic smoke, milestone acceptance, and GAME.md's
